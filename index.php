@@ -59,9 +59,39 @@ if (isset($_GET['lat']) && isset($_GET['lon'])) {
                 'humidity' => $locationData['main']['humidity'],
                 'wind_speed' => $locationData['wind']['speed']
             ];
+
+            if (strpos($searchWeather['description'], 'rain') !== false) {
+                $message = "Hujan di " . $searchWeather['name'] . " dengan suhu " . $searchWeather['temp'] . "°C" . 
+                           ", kelembapan " . $searchWeather['humidity'] . "% dan kecepatan angin " . 
+                           $searchWeather['wind_speed'] . " m/s. Segera siapkan payung/jas hujan.";
+                NotifTelegram($message);
+            }
         }
     }
 }
+
+
+
+// function notif alert to telegram
+function NotifTelegram($message){
+    $message = "kontol";
+    $curl = curl_init();
+
+     curl_setopt_array($curl, array(
+    CURLOPT_URL => 'https://api.telegram.org/bot8114558896:AAH9zk8PmtYxDU-qhHKQRVLwatgRJF_KBkU/sendMessage?text='.urlencode($message).'&chat_id=-4651750315',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'GET',
+   ));
+
+$response = curl_exec($curl);
+}
+
+
 ?>
 
 <!DOCTYPE html>
