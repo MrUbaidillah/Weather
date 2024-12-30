@@ -1,0 +1,104 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #00aaff, #ffffff);
+    color: #333;
+}
+header {
+    background: #007ACC;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+.search-bar {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.search-bar input {
+    padding: 15px;
+    width: 60%;
+    max-width: 400px;
+    border: 2px solid #007ACC;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1em;
+    transition: all 0.3s;
+}
+.search-bar input:focus {
+    border-color: #005c99;
+    box-shadow: 0 0 8px rgba(0, 92, 153, 0.5);
+}
+.search-bar button {
+    padding: 15px 25px;
+    background: #007ACC;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+.search-bar button:hover {
+    background: #005c99;
+}
+.city-weather {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.city {
+    flex: 1 1 calc(30% - 20px);
+    background: #f9f9fb;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.city:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+.city img {
+    max-width: 80px;
+    margin-bottom: 15px;
+}
+.city h2 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: #007ACC;
+}
+.city p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+}
+.city p strong {
+    color: #333;
+}
+@media (max-width: 768px) {
+    .city {
+        flex: 1 1 calc(45% - 20px);
+    }
+}
+@media (max-width: 480px) {
+    .city {
+        flex: 1 1 calc(100% - 20px);
+    }
+}
